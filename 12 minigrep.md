@@ -1,0 +1,5 @@
+we bring the `std::env` module into scope with a `use` statement so we can use its `args` function. By doing so, we can easily use other functions from `std::env`. It’s also less ambiguous than adding `use std::env::args` and then calling the function with just `args`, because `args` might easily be mistaken for a function that’s defined in the current module.
+
+> ### [The `args` Function and Invalid Unicode](https://rust-book.cs.brown.edu/ch12-01-accepting-command-line-arguments.html#the-args-function-and-invalid-unicode)
+> 
+> Note that `std::env::args` will panic if any argument contains invalid Unicode. If your program needs to accept arguments containing invalid Unicode, use `std::env::args_os` instead. That function returns an iterator that produces `OsString` values instead of `String` values. We’ve chosen to use `std::env::args` here for simplicity, because `OsString` values differ per platform and are more complex to work with than `String` values.
